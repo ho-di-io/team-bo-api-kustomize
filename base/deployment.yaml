@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: koo-api-deployment
+  name: team-bo-api-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: koo-api
+      app: team-bo-api
   template:
     metadata:
       labels:
-        app: koo-api
+        app: team-bo-api
     spec:
       containers:
-        - name: koo-api
-          image: koogg/koo-api:latest
+        - name: team-bo-api
+          image: registry.ho-di.io/team-bo-api:latest
           ports:
             - containerPort: 8080
           livenessProbe:
@@ -25,7 +25,7 @@ spec:
             periodSeconds: 5
           readinessProbe:
             httpGet:
-            path: /actuator/health
-            port: 8080
-          initialDelaySeconds: 20
-          periodSeconds: 5
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 20
+            periodSeconds: 5
