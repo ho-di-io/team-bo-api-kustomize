@@ -39,6 +39,6 @@ spec:
             path: "/"
             backend:
               service:
-                name: team-bo-api
+                name: team-bo-api-service
                 port:
                   number: 8080
