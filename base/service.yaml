@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: team-bo-api-service
 spec:
-  type: NodePort
   ports:
     - name: http
       port: 8080
-      targetPort: 8080
+      protocol: TCP
   selector:
     app: team-bo-api
