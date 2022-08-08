@@ -13,21 +13,21 @@ spec:
         app: team-bo-api
     spec:
       containers:
-        - name: team-bo-api
-          image: registry.ho-di.io/team-bo-api:latest
-          ports:
-            - containerPort: 8080
-          livenessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 20
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /actuator/health
-              port: 8080
-            initialDelaySeconds: 20
-            periodSeconds: 5
+      - name: team-bo-api
+        image: registry.ho-di.io/team-bo-api:0058dc51
+        ports:
+          - containerPort: 8080
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 40
+          periodSeconds: 5
       imagePullSecrets:
-        - name: regsecret
+      - name: regsecret
